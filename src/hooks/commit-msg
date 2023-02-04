@@ -1,0 +1,9 @@
+#!/bin/bash
+
+file_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" || exit; pwd -P )
+source $file_path/../imports.sh
+
+COMMIT_MSG=`head -n1 $1`
+if [[ $commit_lint_regex ]]; then
+    commit_lint "$commit_lint_regex" "$commit_lint_message"
+fi

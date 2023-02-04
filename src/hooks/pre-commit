@@ -1,0 +1,22 @@
+#!/bin/bash
+
+file_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" || exit; pwd -P )
+source $file_path/../imports.sh
+
+if [[ $branchname_lint_regex ]]; then
+    branchname_lint "$branchname_lint_regex" "$branchname_lint_message"
+fi
+
+if [[ $no_commit_to_branches_1 ]] || [[ $no_commit_to_branch ]]; then
+    no_commit_to_branch
+fi
+
+if [[ $filename_lint_regex ]]; then
+    filename_lint "$filename_lint_regex" "$filename_lint_message"
+fi
+
+if [[ $pre_commit ]]; then
+    run_command "$pre_commit"
+fi
+
+exit 0

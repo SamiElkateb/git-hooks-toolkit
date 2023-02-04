@@ -1,0 +1,14 @@
+commit_lint: 
+  regex: '^(add|fix|remove|refactor|reformat|improve|update|start|bump|chore|document|test): .*'
+  message: 'Commit message must contain a verb (ex: \"add: awesome feature\"). Accepted verbs are: add, fix, remove, refactor, reformat, improve, update, test, start, bump, chore, document'
+filename_lint:
+  regex: '^[a-zA-Z0-9\_\.\-]+$'
+  message: 'Commit aborted: Attempt to add a non-alphanumeric file name.'
+branchname_lint:
+  regex: '^(develop|main|master|((feature|hotfix)/[a-zA-Z0-9\_]+))$'
+  message: 'Commit aborted: branch name does not follow naming convention.'
+no_commit_to: 
+  branches:
+    - master
+    - develop
+  message: 'Committing to the following branches is not allowed : master, develop'
