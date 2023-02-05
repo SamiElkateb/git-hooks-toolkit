@@ -1,0 +1,12 @@
+
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "types": ["vitest/globals"],
+    "resolveJsonModule": true,
+    "esModuleInterop": true
+  },
+  "include": [
+    "lib", "src", "__fixtures__", "__tests__", "__mocks__", "vite.config.ts", "template"
+  ]
+}

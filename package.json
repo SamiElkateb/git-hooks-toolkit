@@ -1,0 +1,52 @@
+{
+  "name": "git-hooks-toolkit",
+  "version": "0.0.1",
+  "description": "Git Hooks Toolkit is a lightweight library to simplify the use of git hooks in a collaborative workflow.   Git Hooks Toolkit can be used on any git repository and comes with a few added features like branch name, file name and commit message linting.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist",
+    "/.git-hooks-toolkit",
+    "/templates"
+  ],
+  "scripts": {
+    "test": "vitest --run --reporter verbose",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest",
+    "compile:watch": "tsc --watch",
+    "build": "tsc",
+    "lint": "eslint lib/**"
+  },
+  "bin": {
+    "git-hooks-toolkit": "dist/bin/index.js"
+  },
+  "author": "Sami E",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SamiElkateb/git-hooks-toolkit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/SamiElkateb/git-hooks-toolkit/issues"
+  },
+  "homepage": "https://github.com/SamiElkateb/git-hooks-toolkit#readme",
+  "devDependencies": {
+    "@types/prompt": "^1.1.5",
+    "@types/yargs": "^17.0.22",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "eslint": "^8.33.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-import": "^2.27.5",
+    "typescript": "^4.9.5",
+    "unplugin-auto-import": "^0.13.0",
+    "vitest": "^0.28.4"
+  },
+  "dependencies": {
+    "eslint-plugin-vitest": "^0.0.32",
+    "prompt": "^1.3.0",
+    "yargs": "^17.6.2",
+    "zod": "^3.20.2"
+  }
+}

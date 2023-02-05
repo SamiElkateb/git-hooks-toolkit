@@ -5,11 +5,24 @@ Git Hooks Toolkit can be used on any git repository and comes with a few added f
 
 ## Installation
 
+### NPX
+
+Git Hooks Toolkit can be automatically installed with npx.
+```
+npx git-hooks-toolkit --init=maven
+```
+
+Git Hooks Toolkit needs to be wired on each collaborator local repository. Otherwise the hooks won't be automatically executed.
+```
+npx git-hooks-toolkit --wire
+```
+
 ### Manual installation
 
-Download the src folder, rename it to `.git-hooks-toolkit` and place it in your project.
-Then run the installation script `install.sh`.
-The installation script needs to be run on each local project.
+- Copy the `.git-hooks-toolkit` folder in your project.
+- Run the installation script `install.sh`.
+- Create your config file from the documentation or use a predefined template.  
+The installation script needs to be run on each collaborator local repository.
 
 ## Usage
 
@@ -66,9 +79,25 @@ commit_lint:
 
 ## Uninstall
 
+
+### NPX
+
+To completely remove git-hooks-toolkit run:
+```
+npx git-hooks-toolkit --uninstall
+```
+
+To disable your custom git hooks in the current git repository but keep the git-hooks-toolkit config run:
+```
+npx git-hooks-toolkit --unwire
+```
+
+### Manual
+
 To completely remove git-hooks-toolkit run the script `uninstall.sh`.
 
 To disable your custom git hooks in the current git repository but keep the git-hooks-toolkit config run the command `git config --unset core.hooksPath`.
+
 
 ## Alternatives
 

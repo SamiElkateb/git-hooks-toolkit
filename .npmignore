@@ -1,0 +1,8 @@
+node_modules
+dist
+old
+.vscode
+coverage
+__fixtures__
+__mocks__
+__tests__

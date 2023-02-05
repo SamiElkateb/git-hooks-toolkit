@@ -1,0 +1,41 @@
+name: Scan
+
+on:
+  push:
+    branches: [ "**" ]
+  pull_request:
+    branches: [ "rolling", main ]
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Npm ci
+        run: npm ci 
+
+      - name: Run ESLint
+        run: npm run lint
+        continue-on-error: false
+  # tests:
+  #   name: Test
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     contents: read
+  #     security-events: write
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v3
+
+  #     - name: Npm ci
+  #       run: npm ci 
+
+  #     - name: Run Tests
+  #       run: npm run test
+  #       continue-on-error: false

@@ -13,5 +13,5 @@ no_commit_to:
     - develop
   message: 'Committing to the following branches is not allowed : master, develop'
 
-pre_commit: npm run lint
-pre_push: npm run lint
+pre_commit: mvn clean package
+pre_push: mvn clean package
