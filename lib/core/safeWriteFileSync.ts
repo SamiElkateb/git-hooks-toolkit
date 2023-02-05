@@ -2,12 +2,10 @@ import prompt = require('prompt');
 import path = require('path');
 import { z } from 'zod';
 import { existsSync, writeFileSync } from 'fs';
-import pathValidationSchema from '../models/path';
 
 const getAbsolutePathFrom = (originPath: string) => (filePath: string) => {
-  const parsedPath = pathValidationSchema.parse(filePath);
-  if (path.isAbsolute(parsedPath)) return parsedPath;
-  return path.resolve(originPath, parsedPath);
+  if (path.isAbsolute(filePath)) return filePath;
+  return path.resolve(originPath, filePath);
 };
 
 const safeWriteFileSync = async (filePath: string, content: string) => {

@@ -51,19 +51,19 @@ class Installer {
     execFileSync(installScriptPath);
   };
 
-  static uninstall = async () => {
+  static uninstall = () => {
     const getAbsoluteDestinationPath = getAbsolutePathFrom(process.cwd());
     const uninstallScriptPath = getAbsoluteDestinationPath('./.git-hooks-toolkit/uninstall.sh');
     execFileSync(uninstallScriptPath);
   };
 
-  static wire = async () => {
+  static wire = () => {
     const getAbsoluteDestinationPath = getAbsolutePathFrom(process.cwd());
     const installScriptPath = getAbsoluteDestinationPath('./.git-hooks-toolkit/install.sh');
     execFileSync(installScriptPath);
   };
 
-  static unwire = async () => {
+  static unwire = () => {
     execSync('git config --unset core.hooksPath');
   };
 }

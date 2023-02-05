@@ -7,6 +7,9 @@ import {
   initSchema, uninstallSchema, wireSchema, unwireSchema,
 } from '../models/args';
 import Installer from '../core/Installer';
+import safely from '../core/safely';
+import withLogs from '../core/withLogs';
+import withExplicitMessages from '../core/withExplicitMessages';
 
 const initDescription = `Initializes git-hooks-toolkit by creating the necessary files and a config template at the root of the project:
 - 1 git-hooks-toolkit.yml config file
@@ -63,13 +66,13 @@ const wire = wireSchema.safeParse(yarg.argv);
 const uninstall = uninstallSchema.safeParse(yarg.argv);
 const unwire = unwireSchema.safeParse(yarg.argv);
 if (init.success) {
-  Installer.init(init.data.init);
+  withLogs(withExplicitMessages(safely(Installer.init.bind(this, init.data.init))));
 } else if (wire.success) {
-  Installer.wire();
+  withLogs(withExplicitMessages(safely(Installer.wire)));
 } else if (uninstall.success) {
-  Installer.uninstall();
+  withLogs(withExplicitMessages(safely(Installer.uninstall)));
 } else if (unwire.success) {
-  Installer.unwire();
+  withLogs(withExplicitMessages(safely(Installer.unwire)));
 } else {
   yarg.showHelp();
 }

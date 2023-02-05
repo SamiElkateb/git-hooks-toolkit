@@ -1,6 +1,6 @@
 {
   "name": "git-hooks-toolkit",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Git Hooks Toolkit is a lightweight library to simplify the use of git hooks in a collaborative workflow.   Git Hooks Toolkit can be used on any git repository and comes with a few added features like branch name, file name and commit message linting.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
